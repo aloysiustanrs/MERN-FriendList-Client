@@ -1,4 +1,4 @@
-# Created a simple To Do List with the MERN Stack
+# Created a FriendList with the MERN Stack
 
 From this project , I learnt how to create a backend using ExpressJS and connect to MongoDB using mongoose. 
 
