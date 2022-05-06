@@ -12,7 +12,10 @@ function App() {
   const addFriend = () => {
     // axios.post(link,object)
     axios
-      .post("http://localhost:3001/addfriend", { name: name, age: age })
+      .post("https://mern-friend-list.herokuapp.com/addfriend", {
+        name: name,
+        age: age,
+      })
       .then((response) => {
         setListOfFriends([
           ...listOfFriends,
@@ -25,7 +28,10 @@ function App() {
     const newAge = prompt("Enter new age:");
 
     axios
-      .put("http://localhost:3001/update", { newAge: newAge, id: id })
+      .put("https://mern-friend-list.herokuapp.com/update", {
+        newAge: newAge,
+        id: id,
+      })
       .then(() => {
         setListOfFriends(
           listOfFriends.map((val) => {
@@ -38,20 +44,22 @@ function App() {
   };
 
   const deleteFriend = (id) => {
-    axios.delete(`http://localhost:3001/delete/${id}`).then(() => {
-      setListOfFriends(
-        listOfFriends.filter((friend) => {
-          return friend._id !== id;
-        })
-      );
-    });
+    axios
+      .delete(`https://mern-friend-list.herokuapp.com/delete/${id}`)
+      .then(() => {
+        setListOfFriends(
+          listOfFriends.filter((friend) => {
+            return friend._id !== id;
+          })
+        );
+      });
   };
 
   // in useEffect, axios gets the data from backend
   // useEffect runs on every render and runs setListOfFriends() to response from data
   useEffect(() => {
     axios
-      .get("http://localhost:3001/read")
+      .get("https://mern-friend-list.herokuapp.com/read")
       .then((response) => {
         setListOfFriends(response.data);
       })
