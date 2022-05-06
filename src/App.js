@@ -100,7 +100,7 @@ function App() {
                   updateFriend(friend._id);
                 }}
               >
-                Update
+                Update Age
               </button>
               <button
                 id="removeBtn"
